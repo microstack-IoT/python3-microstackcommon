@@ -16,7 +16,7 @@ def _py2bytes(bytes_to_send):
 
 
 def _py3bytes(bytes_to_send):
-    """Converts a list of bytes to Python 2 bytes."""
+    """Converts a list of bytes to Python 3 bytes."""
     return bytes((bytes_to_send))
 
 
@@ -26,7 +26,7 @@ def _py2ord(bytes_to_ord):
 
 
 def _py3ord(bytes_to_ord):
-    """Converts a list of bytes to Python 2 bytes."""
+    """Converts a list of bytes to Python 3 bytes."""
     return bytes_to_ord
 
 
