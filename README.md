@@ -1,7 +1,13 @@
 microstackcommon
 ============
 
-Common functions for interacting with PiFace products.
+Common functions for interacting with Microstack products.
+
+Contains some core helper functions and pure Python drivers for accessing
+GPIO pins, SPI and I2C busses.
+
+Currently in active development. Still need to experiment with SMBus for
+Python 3.
 
 
 Documentation

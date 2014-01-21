@@ -10,24 +10,24 @@ SPIDEV = '/dev/spidev'
 SPI_HELP = "`sudo raspi-config`, Advanced, Enable SPI, yes."
 
 
-def _py2bytes(bytes_to_send):
+def _py2bytes(l):
     """Converts a list of bytes to Python 2 bytes."""
-    return "".join([chr(b) for b in bytes_to_send])
+    return "".join([chr(b) for b in l])
 
 
-def _py3bytes(bytes_to_send):
+def _py3bytes(l):
     """Converts a list of bytes to Python 3 bytes."""
-    return bytes((bytes_to_send))
+    return bytes((l))
 
 
-def _py2ord(bytes_to_ord):
-    """Converts a list of bytes to Python 2 bytes."""
-    return [ord(b) for b in bytes_to_ord]
+def _py2ord(l):
+    """Converts a list of data into something Python 2 can use."""
+    return [ord(b) for b in l]
 
 
-def _py3ord(bytes_to_ord):
-    """Converts a list of bytes to Python 3 bytes."""
-    return bytes_to_ord
+def _py3ord(l):
+    """Python 3 can work with bytes quite well, return the list of data."""
+    return l
 
 
 PY3 = sys.version_info[0] >= 3
@@ -42,7 +42,7 @@ class SPIInitError(Exception):
 class SPIDevice(object):
     """An SPI Device at /dev/spi<bus>.<chip_select>."""
     def __init__(self, bus=0, chip_select=0, spi_transaction_callback=None):
-        """Initialises the SPI device file descriptor.
+        """Initialises the SPI device. You have to manually open it.
 
         :param bus: The SPI device bus number
         :type bus: int
@@ -54,24 +54,25 @@ class SPIDevice(object):
         self.chip_select = chip_select
         self.spi_transaction_callback = spi_transaction_callback
         self.fd = None
-        spi_device_string = "%s%d.%d" % (SPIDEV, self.bus, self.chip_select)
-        self.open_fd(spi_device_string)
+        self.spi_device_string = "{dev}{bus}.{cs}".format(dev=SPIDEV,
+                                                          bus=self.bus,
+                                                          cs=self.chip_select)
 
     def __del__(self):
         if self.fd is not None:
-            self.close_fd()
+            self.close()
 
-    def open_fd(self, spi_device_string):
+    def open(self):
         """Opens the SPI device file descriptor."""
         try:
-            self.fd = posix.open(spi_device_string, posix.O_RDWR)
+            self.fd = posix.open(self.spi_device_string, posix.O_RDWR)
         except OSError as e:
             raise SPIInitError(
                 "I can't see %s. Have you enabled the SPI module? (%s)"
                 % (spi_device_string, SPI_HELP)
             )  # from e  # from is only available in Python 3
 
-    def close_fd(self):
+    def close(self):
         """Closes the SPI device file descriptor."""
         posix.close(self.fd)
         self.fd = None
