@@ -26,7 +26,8 @@ def _py2ord(l):
 
 
 def _py3ord(l):
-    """Python 3 can work with bytes quite well, return the list of data."""
+    """Python 3 can work with bytes quite well, return the list of data.
+    """
     return l
 
 
