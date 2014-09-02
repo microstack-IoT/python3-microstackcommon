@@ -27,9 +27,9 @@ Make sure you are using the latest version of Raspbian:
     $ sudo apt-get update
     $ sudo apt-get upgrade
 
-Install `microstackcommon` (for Python 3 and 2) with the following command:
+Install `microstackcommon` for Python 3 with the following command:
 
-    $ sudo apt-get install python{,3}-microstackcommon
+    $ sudo apt-get install python3-microstackcommon
 
 You will also need to set up automatic loading of the SPI kernel module which
 can be done with the latest version of `raspi-config`. Run:
