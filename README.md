@@ -13,11 +13,7 @@ Python 3.
 Documentation
 =============
 
-[http://microstack.github.io/microstackcommon/](http://microstack.github.io/microstackcommon/)
-
-You can also find the documentation installed at:
-
-    /usr/share/doc/python3-microstackcommon/
+[http://microstack-iot.github.io/](http://microstack-iot.github.io/)
 
 Install
 =======
