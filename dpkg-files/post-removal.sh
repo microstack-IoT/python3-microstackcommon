@@ -9,7 +9,7 @@
 backlist_spi() {
     blacklist_file="/etc/modprobe.d/raspi-blacklist.conf"
     blacklist_string="blacklist spi-bcm2708"
-    unblacklist_string="#$blacklist_string # unblacklist for PiFace"
+    unblacklist_string="#$blacklist_string # unblacklist for Microstack"
     tmp_blacklist_file="/tmp/new_backlist_file$(date +%Y%m%d%H%M)"
 
     # if the file exists, blacklist, backup, overwrite

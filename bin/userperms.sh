@@ -18,7 +18,7 @@ add_user_to_group() {
 unbacklist_spi() {
     blacklist_file="/etc/modprobe.d/raspi-blacklist.conf"
     blacklist_string="blacklist spi-bcm2708"
-    unblacklist_string="#$blacklist_string # unblacklist for PiFace"
+    unblacklist_string="#$blacklist_string # unblacklist for Microstack"
     tmp_blacklist_file="/tmp/new_backlist_file$(date +%Y%m%d%H%M)"
 
     # if the file exists, unblacklist, backup, overwrite
@@ -38,7 +38,7 @@ unbacklist_spi() {
 unbacklist_i2c() {
     blacklist_file="/etc/modprobe.d/raspi-blacklist.conf"
     blacklist_string="blacklist i2c-bcm2708"
-    unblacklist_string="#$blacklist_string # unblacklist for PiFace"
+    unblacklist_string="#$blacklist_string # unblacklist for Microstack"
     tmp_blacklist_file="/tmp/new_backlist_file$(date +%Y%m%d%H%M)"
 
     # if the file exists, unblacklist, backup, overwrite
@@ -131,4 +131,4 @@ unbacklist_i2c
 # setup_spi
 setup_i2c
 # setup_gpio
-printf 'Please *reboot* before using your PiFace product.\n'
+printf 'Please *reboot* before using your Microstack product.\n'
