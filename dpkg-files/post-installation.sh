@@ -93,6 +93,13 @@ setup_i2c() {
     add_user_to_group pi $i2c_group_name
 
     printf 'User "pi" can now access the /dev/i2c* devices.\n'
+
+    # add i2c_dev to /etc/modules
+    if ! grep -q i2c_dev /etc/modules; then
+        echo "i2c_dev" >> /etc/modules
+    fi
+
+    printf 'i2c_dev will be loaded at boot.\n'
 }
 
 #=======================================================================
