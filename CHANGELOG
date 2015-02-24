@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+v0.1.1
+------
+- Added i2c_dev to modules in install proceedure.
+
+
 v0.1.0
 ------
 - Inital structure.
