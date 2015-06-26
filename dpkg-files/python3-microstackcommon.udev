@@ -1,3 +1,0 @@
-KERNEL=="spidev*", GROUP="spi", MODE="0660"
-KERNEL=="i2c-*", GROUP="i2c", MODE="0660"
-SUBSYSTEM=="gpio*", PROGRAM="/bin/sh -c 'chown -R root:gpio /sys/class/gpio && chmod -R 770 /sys/class/gpio; chown -R root:gpio /sys/devices/virtual/gpio && chmod -R 770 /sys/devices/virtual/gpio'"

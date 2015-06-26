@@ -166,7 +166,7 @@ class Pin(PinAPI):
             f.write(value)
 
     def _pin_path(self, filename=""):
-        return "/sys/devices/virtual/gpio/gpio%i/%s" % (self.pin_num, filename)
+        return "{}gpio{}/{}".format(GPIO_DIR, self.pin_num, filename)
 
     def __repr__(self):
         return self.__module__ + "." + str(self)

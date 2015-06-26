@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+v0.2.0
+------
+- Removed most of the spi/gpio group stuff becasue of new Raspbian rules.
+- Updated GPIO.
+- Cleaned up and adding to PyPi.
+
 v0.1.1
 ------
 - Added i2c_dev to modules in install proceedure.
