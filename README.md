@@ -1,6 +1,5 @@
 microstackcommon
 ================
-
 Common functions for interacting with Microstack products.
 
 Contains some core helper functions and pure Python drivers for accessing
@@ -9,11 +8,6 @@ GPIO pins, SPI and I2C buses.
 Currently in active development. Still need to experiment with SMBus for
 Python 3.
 
-
-Documentation
-=============
-
-[http://microstack-iot.github.io/](http://microstack-iot.github.io/)
 
 Install
 =======
